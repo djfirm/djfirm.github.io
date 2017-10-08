@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h1>欢迎您，dj</h1>
+	<button>click</button>
+	<script>
+		var h = document.querySelector('h1');
+		var btn = document.querySelector('button');
+		function setName(){
+			var myName = prompt('请输入你的名字：');
+			localStorage.setItem('name',myName);
+			h.innerHTML = '欢迎你，' + myName;
+		}
+		if(!localStorage.getItem('name')){
+			setName();
+		}else{
+			var curName = localStorage.getItem('name');
+			h.innerHTML = '欢迎你，' + curName;
+		}
+		btn.onclick = function(){
+			setName();
+		}
+	</script>
+</body>
+</html>
